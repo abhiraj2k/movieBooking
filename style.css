@@ -104,3 +104,55 @@ body{
 .desc span{
     color: rgb(97, 231, 255);
 }
+/* Buttons */
+.buttons{
+    display: flex;
+    margin: 1rem;
+}
+
+.btn-primary{
+    font-family: "Lato",sans-serif;
+    display: block;
+    text-align: center;
+    background-color: #4d4979;
+    font-size: medium;
+    /* font-weight: 600; */
+    color: #fff;
+    margin: 0 1rem;
+    padding: 0.4rem 1rem;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    box-shadow: -1px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    letter-spacing: 0;
+}
+.btn-secondary{
+    
+    font-family: "Lato",sans-serif;
+    font-size: medium;
+    display: block;
+    background-color: #ffffff;
+    color: #242333;
+    padding: 0.3rem 0.8rem;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    box-shadow: -1px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.btn:focus{
+    border: none;
+    outline: none;
+}
+.btn:hover{
+    border: none;
+}
+.btn-primary:hover{
+    background-color: #3c3861;
+    color: #fff;
+}
+.btn-secondary:hover{
+    background-color: #9797bd;
+    color: #fff;
+}
