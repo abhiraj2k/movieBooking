@@ -5,6 +5,7 @@ const seats = document.querySelectorAll('.row .seat:not(.occupied)');
 const numberOfSeats = document.querySelector('.amount-seat');
 const totalPrice = document.querySelector('.total-price');
 
+const doneBtn = document.querySelector('.btn-primary');
 
 
 populateDataFromLS();
@@ -70,14 +71,13 @@ function resetAll(){
             seat.classList.remove('selected')
         })
     }
+    localStorage.removeItem('moviePrice');
+    localStorage.removeItem('movieIndex');
+    localStorage.removeItem('selectedIndex');
 } 
 
 
 // Event Listners
-// document.addEventListener('DOMContentLoaded',function(){
-//     // resetAll();
-//     setMovieDataToLS(movieName.selectedIndex, movieName.value);
-// })
 
 container.addEventListener('click',(e) =>{
     if(e.target.classList.contains('seat') && !e.target.classList.contains('occupied')){
@@ -92,6 +92,10 @@ movieName.addEventListener('change', (e) => {
     // resetAll();
     moviePrice = +movieName.value;
     updateSelectedCount();
-})
+});
 
+document.querySelector('.btn-secondary').addEventListener('click',(e)=>{
+    resetAll();
+    e.preventDefault();
+});
 updateSelectedCount();
