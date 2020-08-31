@@ -24,7 +24,7 @@ function updateSelectedCount(){
     )
     localStorage.setItem('selectedIndex',JSON.stringify(selectedIndex));
     
-    numberOfSelectedSeats = selectedSeats.length;
+    const numberOfSelectedSeats = selectedSeats.length;
     numberOfSeats.innerText = +numberOfSelectedSeats;
     totalPrice.innerText = +numberOfSelectedSeats*moviePrice;
 }
@@ -40,9 +40,9 @@ function setMovieDataToLS(index,price){
 
 function populateDataFromLS(){
     const selectedIndex = JSON.parse(localStorage.getItem('selectedIndex'));
-    if( selectedIndex.length > 0 && selectedIndex !== null ){
+    if( selectedIndex !== null && selectedIndex.length > 0 ){
 
-        [...seats].forEach(function(seat,index){
+        seats.forEach(function(seat,index){
             if(selectedIndex.indexOf(index) > -1){
                 seat.classList.add('selected');
             }
@@ -58,7 +58,9 @@ function populateDataFromLS(){
     // totalPrice.innerText = selectedIndex.length*+moviePrice;
 }
 
+
 //Reset Seats
+
 function resetAll(){
     numberOfSeats.innerText = 0;
     totalPrice.innerText = 0;
@@ -72,16 +74,16 @@ function resetAll(){
 
 
 // Event Listners
-document.addEventListener('DOMContentLoaded',function(){
-    // resetAll();
-    setMovieDataToLS(movieName.selectedIndex, movieName.value);
-})
+// document.addEventListener('DOMContentLoaded',function(){
+//     // resetAll();
+//     setMovieDataToLS(movieName.selectedIndex, movieName.value);
+// })
 
 container.addEventListener('click',(e) =>{
     if(e.target.classList.contains('seat') && !e.target.classList.contains('occupied')){
         e.target.classList.toggle('selected');
         updateSelectedCount();
-        populateDataFromLS();
+
     } 
 });
 
@@ -91,3 +93,5 @@ movieName.addEventListener('change', (e) => {
     moviePrice = +movieName.value;
     updateSelectedCount();
 })
+
+updateSelectedCount();
